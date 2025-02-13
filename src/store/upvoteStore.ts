@@ -44,8 +44,6 @@ export const upvoteStore = create<UpvoteStore>()(
         }));
       },
       addUpvote: (rowId) => {
-        console.log('bateu aqui')
-        console.log(rowId)
         return set((state) => ({
           rows: state.rows.map((row) => {
             if (row.id === rowId) {
