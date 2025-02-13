@@ -15,6 +15,7 @@ export const Upvote: FC<UpvoteProps> = ({ rowId, isActive }) => {
     <button
       type="button"
       aria-pressed={isActive}
+      data-testid={`upvote-${rowId}`}
       onClick={() => toggleUpvote(rowId)}
       className={buttonStyles({ active: isActive })}
       aria-label={isActive ? "Remove upvote" : "Add upvote"}

@@ -1,7 +1,8 @@
-import { UpvoteGroup } from "../UpvoteRow";
+import { FC } from "react";
+import { UpvoteGroup } from "../UpvoteGroup";
 import { upvoteStore } from "../../store/upvoteStore";
 
-export const UpvoteList = () => {
+export const UpvoteList: FC = () => {
   const rows = upvoteStore(state => state.rows);
 
   return (

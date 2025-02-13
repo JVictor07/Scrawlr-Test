@@ -1,9 +1,9 @@
-import { memo } from "react";
+import { memo, FC } from "react";
 import { Upvote } from "../Upvote";
 import Plus from "../../assets/plus.svg?react";
 import { UpvoteRow, upvoteStore } from "../../store/upvoteStore";
 
-export const UpvoteGroup = memo(({ row }: { row: UpvoteRow }) => {
+export const UpvoteGroup: FC<{ row: UpvoteRow }> = memo(({ row }) => {
   const addUpvote = upvoteStore(state => state.addUpvote);
 
   return (
@@ -20,8 +20,8 @@ export const UpvoteGroup = memo(({ row }: { row: UpvoteRow }) => {
         {Array.from({ length: row.qtd }).map((_, index) => (
           <Upvote 
             rowId={row.id} 
-            key={`${row.id}-${index}`} 
             isActive={row.isSelected} 
+            key={`${row.id}-${index}`} 
           />
         ))}
       </div>
@@ -30,6 +30,7 @@ export const UpvoteGroup = memo(({ row }: { row: UpvoteRow }) => {
         type="button"
         aria-label="Add upvote"
         onClick={() => addUpvote(row.id)}
+        data-testid={`add-upvote-${row.id}`}
         className="flex items-center justify-center min-w-10 h-10 rounded-md bg-gray-100 hover:bg-gray-200 transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
       >
         <Plus className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" aria-hidden="true" />
