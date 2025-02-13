@@ -13,10 +13,13 @@ export const Upvote: FC<UpvoteProps> = ({ rowId, isActive }) => {
 
   return (
     <button
+      type="button"
+      aria-pressed={isActive}
       onClick={() => toggleUpvote(rowId)}
       className={buttonStyles({ active: isActive })}
+      aria-label={isActive ? "Remove upvote" : "Add upvote"}
     >
-      <ArrowUp className="w-4 h-4" />
+      <ArrowUp className="w-4 h-4" aria-hidden="true" />
     </button>
   );
 };
