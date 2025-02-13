@@ -19,7 +19,7 @@ export const Upvote: FC<UpvoteProps> = ({ rowId, isActive }) => {
       className={buttonStyles({ active: isActive })}
       aria-label={isActive ? "Remove upvote" : "Add upvote"}
     >
-      <ArrowUp className="w-4 h-4" aria-hidden="true" />
+      <ArrowUp className={`w-4 h-4 transition-transform duration-200`} aria-hidden="true" />
     </button>
   );
 };
